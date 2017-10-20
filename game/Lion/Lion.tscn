@@ -37,6 +37,7 @@ collision/margin = 0.08
 script/script = ExtResource( 1 )
 hp = 100
 speed = 10
+reward = 10
 
 [node name="attack_area" type="Area2D" parent="."]
 

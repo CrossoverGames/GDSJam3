@@ -2,11 +2,12 @@ extends KinematicBody2D
 
 export(int) var hp = 100
 export(int) var speed = 40
+export(int) var reward = 10
 
 var path_follow
 var lifebar
 
-signal lion_dead
+signal lion_dead(reward)
 
 func _ready():
 	path_follow = get_parent()
@@ -25,6 +26,6 @@ func hit(value):
 		hp -= value
 		lifebar.set_value(hp)
 	else:
-		emit_signal("lion_dead")
+		emit_signal("lion_dead", reward)
 		
 	
