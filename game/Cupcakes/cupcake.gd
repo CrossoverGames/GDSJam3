@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export(float) var max_speed = 50.0
+export(float) var max_speed = 150.0
 export(float, EASE) var speed_transition = 2
 
 var target
@@ -22,3 +22,8 @@ func _process(delta):
 	
 	var direction = (target.get_global_pos() - self.get_global_pos()).normalized()
 	self.move(direction * speed * delta)
+	
+	if is_colliding():
+		if get_collider() == target:
+			# damage
+			queue_free()

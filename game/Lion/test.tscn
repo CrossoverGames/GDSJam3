@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Unicorns/Unicorn.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -32,5 +33,9 @@ lookahead = 4.0
 transform/pos = Vector2( -9.07023, 0.305756 )
 transform/rot = -0.724447
 speed = 40
+
+[node name="Unicorn" parent="." instance=ExtResource( 2 )]
+
+transform/pos = Vector2( 229.904, 489.735 )
 
 

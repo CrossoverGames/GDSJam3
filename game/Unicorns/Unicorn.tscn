@@ -33,7 +33,7 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 health = 100.0
 cupcake_scene = ExtResource( 2 )
-interval = 1.0
+interval = 3.0
 
 [node name="shape" type="CollisionShape2D" parent="."]
 

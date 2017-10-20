@@ -28,11 +28,12 @@ func lion_enter(lion):
 	lions_in_range.append(lion)
 	
 	if lions_in_range.size() == 1:
+		shoot_cupcake()
 		shoot_timer.start()
 
 func lion_exit(lion):
 	if lions_in_range.has(lion):
-		lions_in_range.remove(lion)
+		lions_in_range.erase(lion)
 
 func shoot_cupcake():
 	if ripped or lions_in_range.empty():
@@ -40,7 +41,6 @@ func shoot_cupcake():
 		return
 	
 	var cupcake = cupcake_scene.instance()
-	cupcake.set_global_pos(get_global_pos())
 	cupcake.set_target(lions_in_range[0])
 	self.add_child(cupcake)
 
