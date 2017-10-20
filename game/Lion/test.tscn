@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, -58.6024, 405.588, 0, 0, 0, 0, 103.391, 403.537, 0, 0, 0, 0, 150.553, 337.92, 0, 0, 0, 0, 179.261, 251.797, 0, 0, 0, 0, 257.182, 198.483, 0, 0, 0, 0, 339.204, 163.623, 0, 0, 0, 0, 439.68, 188.23, 0, 0, 0, 0, 495.045, 227.19, 0, 0, 0, 0, 511.449, 313.313, 0, 0, 0, 0, 562.713, 344.071, 0, 0, 0, 0, 675.493, 378.931, 0, 0, 0, 0, 757.515, 360.476, 0, 0, 0, 0, 778.021, 276.403, 0, 0, 0, 0, 786.223, 196.432, 0, 0, 0, 0, 841.587, 130.814, 0, 0, 0, 0, 890.801, 130.814, 0, 0, 0, 0, 927.71, 182.078, 0, 0, 0, 0, 954.367, 239.493, 0, 0, 0, 0, 1019.98, 247.696, 0, 0, 0, 0, 1048.69, 257.948 )
+}
+
+[node name="test" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+transform/pos = Vector2( -58.6024, 405.588 )
+transform/rot = 0.725783
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Lion" parent="Path2D/PathFollow2D" instance=ExtResource( 1 )]
+
+transform/pos = Vector2( -9.07023, 0.305756 )
+transform/rot = -0.724447
+speed = 40
+
+
