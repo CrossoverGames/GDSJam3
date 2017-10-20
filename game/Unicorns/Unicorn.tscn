@@ -33,7 +33,7 @@ angular_damp = 1.0
 script/script = ExtResource( 1 )
 health = 100.0
 cupcake_scene = ExtResource( 2 )
-interval = 3.0
+interval = 1.0
 
 [node name="shape" type="CollisionShape2D" parent="."]
 
@@ -46,5 +46,7 @@ _update_shape_index = 0
 frames = SubResource( 2 )
 animation = "default"
 modulate = Color( 0, 0.671875, 1, 1 )
+
+[node name="cupcake_spawn" type="Position2D" parent="."]
 
 

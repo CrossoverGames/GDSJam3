@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=1]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+
+transform/rot = 0.725783
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = false
+cubic_interp = true
+loop = false
+lookahead = 4.0
+
+[node name="Lion" parent="." instance=ExtResource( 1 )]
+
+

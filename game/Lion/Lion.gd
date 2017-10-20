@@ -13,7 +13,7 @@ func _ready():
 	path_follow = get_parent()
 	lifebar = get_node("LifeBar")
 	
-	lifebar.uodate_max_hp(hp)
+	lifebar.update_max_hp(hp)
 	
 	set_fixed_process(true)
 
@@ -27,5 +27,6 @@ func hit(value):
 		lifebar.set_value(hp)
 	else:
 		emit_signal("lion_dead", reward)
+		queue_free()
 		
 	

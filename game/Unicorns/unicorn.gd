@@ -42,6 +42,7 @@ func shoot_cupcake():
 	
 	var cupcake = cupcake_scene.instance()
 	cupcake.set_target(lions_in_range[0])
+	cupcake.set_pos(get_node("cupcake_spawn").get_pos())
 	self.add_child(cupcake)
 
 func scare(points):

@@ -7,12 +7,12 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 32.94
+radius = 32.6488
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 84.9778
+radius = 87.3753
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -36,7 +36,7 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 hp = 100
-speed = 10
+speed = 40
 reward = 10
 
 [node name="attack_area" type="Area2D" parent="."]

@@ -9,10 +9,13 @@ func get_enemy_count():
 	return 5 + 4 * wave
 
 func get_wave_interval():
-	return 20 + 10 * wave
+	return 20.0 + 10.0 * wave
 
 func get_spawn_interval():
-	return get_enemy_count() / (18 + 2 * wave)
+	return get_enemy_count() / (5.0 + 2.0 * wave)
+
+func get_wave_reward():
+	return 10.0 * wave
 
 func advance_wave():
 	wave += 1
@@ -27,4 +30,4 @@ func on_lion_dead(reward):
 	
 	if lions_alive == 0:
 		advance_wave()
-		# open store, ...
+		money += get_wave_reward()
