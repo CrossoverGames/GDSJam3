@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Controller/Controller.gd" type="Script" id=1]
+[ext_resource path="res://Controller/Spawner.gd" type="Script" id=2]
+[ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/placeholders/play.png" type="Texture" id=4]
+
+[node name="Controller" type="CanvasLayer"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+script/script = ExtResource( 1 )
+money = 0.0
+wave = 1
+
+[node name="Spawner" type="Node" parent="."]
+
+script/script = ExtResource( 2 )
+lion_scene = ExtResource( 3 )
+lions_parent_path = NodePath(".")
+
+[node name="Timer" type="Timer" parent="Spawner"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="AdminTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
+
+[node name="play_button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 470.0
+margin/top = 490.0
+margin/right = 530.0
+margin/bottom = 550.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 4 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_lion"]
+
+[connection signal="pressed" from="play_button" to="." method="start_wave"]
+
+

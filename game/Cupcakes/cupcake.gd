@@ -25,5 +25,5 @@ func _process(delta):
 	
 	if is_colliding():
 		if get_collider() == target:
-			# damage
+			# hit
 			queue_free()
