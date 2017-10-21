@@ -5,5 +5,6 @@
 [node name="MouseControl" type="Node2D"]
 
 script/script = ExtResource( 1 )
+towers_interface_path = NodePath("")
 
 
