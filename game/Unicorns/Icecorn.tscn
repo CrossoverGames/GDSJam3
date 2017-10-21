@@ -4,13 +4,12 @@
 [ext_resource path="res://Cupcakes/Icecream.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Unicorns/sprite/icecorn.png" type="Texture" id=3]
 
-[sub_resource type="CapsuleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 27.7155
-height = 86.1932
+radius = 369.526
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -25,34 +24,23 @@ health = 100.0
 cupcake_scene = ExtResource( 2 )
 interval = 1.0
 
-[node name="shape" parent="."]
-
-transform/pos = Vector2( -18.0453, 2.20064 )
-shape = SubResource( 2 )
-
 [node name="shape" parent="range"]
 
-shape = null
+shape = SubResource( 1 )
 
 [node name="sprite" parent="."]
 
-transform/pos = Vector2( 0.303862, 0 )
-transform/scale = Vector2( 0.062088, 0.062088 )
-frames = SubResource( 1 )
+transform/pos = Vector2( 0.312907, 0 )
+transform/scale = Vector2( 0.044307, 0.044307 )
+frames = SubResource( 2 )
 
 [node name="cupcake_spawn" parent="."]
 
-transform/pos = Vector2( 43.4798, -48.7952 )
+transform/pos = Vector2( 24.5543, -44.834 )
 
 [node name="LifeBar" parent="."]
 
-margin/left = -53.0
-margin/top = -96.0
-margin/right = 632.0
-margin/bottom = 43.0
-
-[node name="CollisionShape2D" parent="tower"]
-
-transform/pos = Vector2( -11.0032, 38.4623 )
+margin/top = -94.0
+margin/bottom = -54.0
 
 
