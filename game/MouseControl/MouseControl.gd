@@ -20,14 +20,14 @@ func _ready():
 	towers_interface = get_node(towers_interface_path)
 	towers = get_tree().get_nodes_in_group("tower_button")
 	for button in towers:
-		button.connect("button_down", self, "tower_button_pressed", [button])
+		button.connect("pressed", self, "tower_button_pressed", [button])
 	set_process_input(true)
 
 func _input(ev):
 	if ev.type == InputEvent.MOUSE_BUTTON and ev.button_index == BUTTON_LEFT:
 		pressed = ev.pressed
 		emit_signal("mouse_clicked", ev.global_pos)
-		if not pressed:
+		if not pressed and moving_tower:
 			moving_tower.set_active(true)
 			moving_tower = null
 
