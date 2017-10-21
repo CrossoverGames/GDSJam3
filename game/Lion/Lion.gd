@@ -14,6 +14,7 @@ signal lion_dead(reward)
 
 func _ready():
 	lifebar.update_max_hp(hp)
+	lifebar.set_value(hp)
 	set_fixed_process(true)
 
 func _fixed_process(delta):

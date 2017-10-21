@@ -44,8 +44,8 @@ collision/layers = 3
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
-hp = 100
-speed = 40
+hp = 150
+speed = 80
 reward = 10
 damage = 10
 roar_interval = 1.5
@@ -73,6 +73,7 @@ _update_shape_index = 0
 transform/scale = Vector2( -0.02, 0.02 )
 frames = SubResource( 3 )
 animation = "walk"
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

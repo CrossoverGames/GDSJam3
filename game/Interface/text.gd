@@ -14,5 +14,5 @@ func _process(delta):
 	if timer.get_time_left() == 0.0:
 		text += "\nRemaining enemies: " + str(controller.lions_alive)
 	else:
-		text += "\nNext wave in " + str(timer.get_time_left()) + " s"
+		text += "\nNext wave in " + str(ceil(timer.get_time_left())) + " s"
 	set_text(text)

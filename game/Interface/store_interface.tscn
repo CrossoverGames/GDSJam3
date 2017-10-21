@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://LifeBar/under.png" type="Texture" id=1]
 [ext_resource path="res://MouseControl/MouseControl.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Unicorns/Unicorn.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Unicorns/Icecorn.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Interface/TowersInterface.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Unicorns/PillowFort.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Interface/TowersInterface.tscn" type="PackedScene" id=6]
 
 [node name="store_interface" type="CanvasLayer"]
 
@@ -26,10 +27,10 @@ controller_path = NodePath("")
 unicorns_parent = NodePath("")
 unicorn_1 = ExtResource( 3 )
 unicorn_2 = ExtResource( 4 )
-unicorn_3 = ExtResource( 4 )
-prices = null
+unicorn_3 = ExtResource( 5 )
+prices = FloatArray( 30, 50, 70 )
 
-[node name="TowersInterface" parent="." instance=ExtResource( 5 )]
+[node name="TowersInterface" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 127.978, 566.48 )
 
