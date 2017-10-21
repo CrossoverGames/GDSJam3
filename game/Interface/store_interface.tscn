@@ -13,14 +13,14 @@ scale = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 
-transform/pos = Vector2( 512.782, 563.737 )
-transform/scale = Vector2( 1.4983, 1 )
+transform/pos = Vector2( 512.782, 555.895 )
+transform/scale = Vector2( 1.4983, 1.22407 )
 texture = ExtResource( 1 )
 
 [node name="MouseControl" parent="." instance=ExtResource( 2 )]
 
 [node name="TowersInterface" parent="." instance=ExtResource( 3 )]
 
-transform/pos = Vector2( 11.1037, 531.127 )
+transform/pos = Vector2( 11.1037, 515.127 )
 
 
