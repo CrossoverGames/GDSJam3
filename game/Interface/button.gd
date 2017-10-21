@@ -1,3 +1,3 @@
 extends TextureButton
 
-export(int, "First", "Second") var type = 0
+export(int, "First", "Second", "Third") var type = 0

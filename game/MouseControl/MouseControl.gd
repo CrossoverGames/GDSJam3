@@ -22,6 +22,9 @@ func _input(ev):
 	if ev.type == InputEvent.MOUSE_BUTTON and ev.button_index == BUTTON_LEFT:
 		pressed = ev.pressed
 		emit_signal("mouse_clicked", ev.global_pos)
+		if not pressed:
+			moving_tower.set_active(true)
+			moving_tower = null
 
 	if ev.type == InputEvent.MOUSE_MOTION:
 		if pressed and moving_tower:
@@ -31,6 +34,10 @@ func _input(ev):
 func tower_button_pressed(button):
 	pressed = true
 	if button.type == Globals.get("Towers/FirstTower"):
+		create_new_tower("res://Unicorns/Unicorn.tscn")
+	elif button.type == Globals.get("Towers/Second Tower"):
+		create_new_tower("res://Unicorns/Unicorn.tscn")
+	elif button.type == Globals.get("Towers/Third Tower"):
 		create_new_tower("res://Unicorns/Unicorn.tscn")
 		
 func create_new_tower(path):
