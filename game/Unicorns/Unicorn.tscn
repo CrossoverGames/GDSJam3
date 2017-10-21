@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Unicorns/unicorn.gd" type="Script" id=1]
 [ext_resource path="res://Cupcakes/Cupcake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Unicorns/sprite/Canhão-1.png" type="Texture" id=3]
-[ext_resource path="res://Unicorns/sprite/Canhão-2.png" type="Texture" id=4]
-[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Unicorns/sprite/Canhão-Quebrado.png" type="Texture" id=4]
+[ext_resource path="res://Unicorns/sprite/Canhão-2.png" type="Texture" id=5]
+[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -24,12 +25,12 @@ animations = [ {
 "name": "default",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 4 ) ],
 "loop": false,
 "name": "rip",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
 "loop": false,
 "name": "shoot",
 "speed": 12.0
@@ -68,6 +69,7 @@ _update_shape_index = 0
 
 [node name="range" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -90,11 +92,12 @@ transform/scale = Vector2( 0.25399, 0.25399 )
 frames = SubResource( 3 )
 animation = "default"
 
-[node name="cupcake_spawn" type="Position2D" parent="."]
+[node name="cupcake_spawn" type="Position2D" parent="sprite"]
 
-transform/pos = Vector2( -57.9556, 0 )
+transform/pos = Vector2( -232.084, -1.8933 )
+transform/scale = Vector2( 3.93717, 3.93716 )
 
-[node name="LifeBar" parent="." instance=ExtResource( 5 )]
+[node name="LifeBar" parent="." instance=ExtResource( 6 )]
 
 margin/left = -32.0
 margin/top = -83.0
