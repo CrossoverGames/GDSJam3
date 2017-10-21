@@ -16,10 +16,10 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 145.0
-margin/top = 399.0
-margin/right = 209.0
-margin/bottom = 463.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 64.0
+margin/bottom = 64.0
 toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
@@ -29,5 +29,97 @@ params/stretch_mode = 0
 params/modulate = Color( 0.988281, 0.556994, 0.138977, 1 )
 script/script = ExtResource( 3 )
 type = 0
+
+[node name="Label" type="Label" parent="FirstTower"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 17.0
+margin/top = 69.0
+margin/right = 57.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0.84375, 0, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="SecondTower" type="TextureButton" parent="." groups=[
+"tower_button",
+]]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 100.0
+margin/top = 0.0
+margin/right = 164.0
+margin/bottom = 64.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+params/resize_mode = 0
+params/stretch_mode = 0
+params/modulate = Color( 0.816406, 0.200912, 0.749087, 1 )
+script/script = ExtResource( 3 )
+type = 1
+
+[node name="Label" type="Label" parent="SecondTower"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 18.0
+margin/top = 69.0
+margin/right = 58.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0.84375, 0, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="ThirdTower" type="TextureButton" parent="." groups=[
+"tower_button",
+]]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 200.0
+margin/top = 0.0
+margin/right = 264.0
+margin/bottom = 64.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 2 )
+params/resize_mode = 0
+params/stretch_mode = 0
+params/modulate = Color( 0.949219, 0.0259552, 0.155789, 1 )
+script/script = ExtResource( 3 )
+type = 2
+
+[node name="Label" type="Label" parent="ThirdTower"]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 21.0
+margin/top = 69.0
+margin/right = 61.0
+margin/bottom = 100.0
+custom_colors/font_color = Color( 1, 0.84375, 0, 1 )
+text = "100"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 
