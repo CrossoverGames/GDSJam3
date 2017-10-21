@@ -40,23 +40,21 @@ curve = SubResource( 1 )
 
 [node name="Unicorn" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 213.579, 404.031 )
+transform/pos = Vector2( 258.579, 332.031 )
 
 [node name="Unicorn1" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 349.617, 108.83 )
+transform/pos = Vector2( 344.617, 61.8299 )
 
 [node name="Unicorn2" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 605.368, 276.156 )
+transform/pos = Vector2( 633.368, 250.156 )
 
 [node name="Unicorn3" parent="." instance=ExtResource( 1 )]
 
-transform/pos = Vector2( 858.398, 363.22 )
+transform/pos = Vector2( 874.398, 362.22 )
 
 [node name="Controller" parent="." instance=ExtResource( 2 )]
-
-editor/display_folded = true
 
 [node name="Spawner" parent="Controller"]
 

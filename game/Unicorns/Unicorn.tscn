@@ -10,12 +10,12 @@
 custom_solver_bias = 0.0
 radius = 40.3117
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 248.383
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
@@ -52,7 +52,7 @@ _update_shape_index = 0
 [node name="range" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 3 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -62,7 +62,7 @@ angular_damp = 1.0
 
 [node name="shape" type="CollisionShape2D" parent="range"]
 
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
@@ -70,7 +70,7 @@ _update_shape_index = 0
 
 transform/pos = Vector2( 0.390756, 0 )
 transform/scale = Vector2( -0.2, 0.2 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "default"
 
 [node name="cupcake_spawn" type="Position2D" parent="."]

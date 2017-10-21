@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Cupcakes/Cupcake.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Cupcakes/icecream.gd" type="Script" id=2]
+
+[node name="Icecream" instance=ExtResource( 1 )]
+
+script/script = ExtResource( 2 )
+damage = 15.0
+max_speed = 150.0
+speed_transition = 0.170755
+
+[node name="sprite" parent="."]
+
+modulate = Color( 0, 0.744873, 0.84375, 1 )
+
+
