@@ -1,10 +1,11 @@
-[gd_scene load_steps=31 format=1]
+[gd_scene load_steps=32 format=1]
 
 [ext_resource path="res://Stage/tile0.png" type="Texture" id=1]
 [ext_resource path="res://Stage/tile90.png" type="Texture" id=2]
 [ext_resource path="res://Stage/background.png" type="Texture" id=3]
 [ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Unicorns/PillowFort.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 
@@ -454,6 +455,7 @@ curve = SubResource( 1 )
 
 [node name="store_interface" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 layer = 5
 
 [node name="MouseControl" parent="store_interface"]
@@ -461,9 +463,10 @@ layer = 5
 towers_interface_path = NodePath("../TowersInterface")
 controller_path = NodePath("../../Controller")
 unicorns_parent = NodePath("../../YSort")
+unicorn_3 = ExtResource( 5 )
 prices = FloatArray( 30, 50, 30 )
 
-[node name="Controller" parent="." instance=ExtResource( 5 )]
+[node name="Controller" parent="." instance=ExtResource( 6 )]
 
 editor/display_folded = true
 money = 50.0
@@ -474,6 +477,8 @@ lions_parent_path = NodePath("../../Path2D")
 
 [node name="path_area" type="Area2D" parent="."]
 
+editor/display_folded = true
+visibility/visible = false
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
