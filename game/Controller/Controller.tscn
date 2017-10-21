@@ -17,7 +17,7 @@ func _ready():
 
 func _process(delta):
 	if timer.get_time_left() == 0.0:
-		set_text(\"Remaining enemies: \" + str(controller.get_enemy_count()))
+		set_text(\"Remaining enemies: \" + str(controller.lions_alive))
 	else:
 		set_text(\"Next wave in \" + str(timer.get_time_left()) + \" s\")
 "

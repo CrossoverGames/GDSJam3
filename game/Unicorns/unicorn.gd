@@ -12,12 +12,15 @@ var lions_in_range = []
 
 var ripped = false
 
+var active = true
+
 func _ready():
 	var reach = get_node("range")
 	reach.connect("body_enter", self, "lion_enter")
 	reach.connect("body_exit", self, "lion_exit")
 	
 	lifebar.update_max_hp(health)
+	lifebar.set_value(health)
 	
 	shoot_timer = Timer.new()
 	shoot_timer.set_name("shoot_timer")
@@ -41,7 +44,7 @@ func lion_exit(lion):
 		lions_in_range.erase(lion)
 
 func shoot_cupcake():
-	if ripped or lions_in_range.empty():
+	if ripped or not active or lions_in_range.empty():
 		shoot_timer.stop()
 		return
 	
@@ -62,3 +65,6 @@ func rip():
 	shoot_timer.stop()
 #	get_node("sprite").play("rip")
 	queue_free()
+
+func set_active(value):
+	active = value

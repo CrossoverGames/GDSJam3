@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(float) var damage = 30.0
 export(float) var max_speed = 150.0
 export(float, EASE) var speed_transition = 2
+export(float) var random = 20.0
 
 var target_pos
 var direction
@@ -16,6 +17,9 @@ func set_target(lion):
 func _ready():
 	set_process(true)
 	direction = (target_pos - get_global_pos()).normalized()
+	direction = direction.rotated(deg2rad(rand_range(-random, random)))
+	var rotation = Vector2(0, -1).angle_to(direction)
+	set_rot(rotation)
 	timer = 0
 
 func _process(delta):
@@ -27,6 +31,10 @@ func _process(delta):
 	self.move(direction * speed * delta)
 	
 	if is_colliding():
-		if get_collider().is_in_group("lion"):
-			get_collider().hit(damage)
-			queue_free()
+		var collider = get_collider()
+		if collider.is_in_group("lion"):
+			hit(collider)
+
+func hit(lion):
+	lion.hit(damage)
+	queue_free()

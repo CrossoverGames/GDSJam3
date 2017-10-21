@@ -9,7 +9,7 @@ func get_enemy_count():
 	return 5 + 4 * wave
 
 func get_wave_interval():
-	return 20.0 + 10.0 * wave
+	return 5.0 + 5.0 * wave
 
 func get_spawn_interval():
 	return get_enemy_count() / (5.0 + 2.0 * wave)
