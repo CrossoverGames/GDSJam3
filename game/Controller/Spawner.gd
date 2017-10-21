@@ -16,6 +16,7 @@ func start_wave(enemy_count, spawn_interval):
 func spawn_lion():
 	var lion = lion_scene.instance()
 	lion.get_node("Lion").connect("lion_dead", get_parent(), "on_lion_dead")
+	lion.get_node("Lion").hp += get_parent().wave * 20.0
 	lions_parent.add_child(lion)
 	
 	enemy_count -= 1
