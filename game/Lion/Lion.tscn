@@ -1,18 +1,18 @@
 [gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Lion/Lion.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Lion/sprite/lion.png" type="Texture" id=2]
 [ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 32.94
+radius = 32.6488
 
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 84.9778
+radius = 113.289
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -31,13 +31,14 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
+collision/layers = 3
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 hp = 100
-speed = 10
+speed = 40
 reward = 10
+damage = 10
 
 [node name="attack_area" type="Area2D" parent="."]
 
@@ -58,6 +59,8 @@ _update_shape_index = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 
+transform/pos = Vector2( 0, 0.48899 )
+transform/scale = Vector2( -0.02, 0.02 )
 frames = SubResource( 3 )
 animation = "default"
 
@@ -73,5 +76,7 @@ margin/left = -36.0
 margin/top = -59.0
 margin/right = 106.0
 margin/bottom = -19.0
+
+[connection signal="body_enter" from="attack_area" to="." method="rawr"]
 
 

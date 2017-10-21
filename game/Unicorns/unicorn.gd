@@ -1,9 +1,11 @@
-extends Area2D
+extends StaticBody2D
 
 export(float) var health = 100.0
 
 export(PackedScene) var cupcake_scene
 export(float) var interval = 1.0
+
+onready var lifebar = get_node("LifeBar")
 
 var shoot_timer
 var lions_in_range = []
@@ -11,8 +13,11 @@ var lions_in_range = []
 var ripped = false
 
 func _ready():
-	connect("body_enter", self, "lion_enter")
-	connect("body_exit", self, "lion_exit")
+	var reach = get_node("range")
+	reach.connect("body_enter", self, "lion_enter")
+	reach.connect("body_exit", self, "lion_exit")
+	
+	lifebar.update_max_hp(health)
 	
 	shoot_timer = Timer.new()
 	shoot_timer.set_name("shoot_timer")
@@ -42,6 +47,7 @@ func shoot_cupcake():
 	
 	var cupcake = cupcake_scene.instance()
 	cupcake.set_target(lions_in_range[0])
+	cupcake.set_pos(get_node("cupcake_spawn").get_pos())
 	self.add_child(cupcake)
 
 func scare(points):
@@ -49,8 +55,10 @@ func scare(points):
 	if health <= 0:
 		health = 0
 		rip()
+	lifebar.set_value(health)
 
 func rip():
 	ripped = true
 	shoot_timer.stop()
-	get_node("sprite").play("rip")
+#	get_node("sprite").play("rip")
+	queue_free()
