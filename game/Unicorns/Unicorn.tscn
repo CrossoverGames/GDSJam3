@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Unicorns/unicorn.gd" type="Script" id=1]
 [ext_resource path="res://Cupcakes/Cupcake.tscn" type="PackedScene" id=2]
-[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://Unicorns/sprite/unicorn.png" type="Texture" id=3]
 [ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -68,11 +68,14 @@ _update_shape_index = 0
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
+transform/pos = Vector2( 0.390756, 0 )
+transform/scale = Vector2( -0.2, 0.2 )
 frames = SubResource( 2 )
 animation = "default"
-modulate = Color( 0, 0.671875, 1, 1 )
 
 [node name="cupcake_spawn" type="Position2D" parent="."]
+
+transform/pos = Vector2( -52.9555, 0 )
 
 [node name="LifeBar" parent="." instance=ExtResource( 4 )]
 
@@ -80,5 +83,21 @@ margin/left = -36.0
 margin/top = -62.0
 margin/right = 106.0
 margin/bottom = -22.0
+
+[node name="selection_button" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -24.0
+margin/top = -46.0
+margin/right = 39.0
+margin/bottom = 43.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+params/resize_mode = 0
+params/stretch_mode = 0
 
 
