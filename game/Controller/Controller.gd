@@ -1,12 +1,18 @@
 extends Node
 
 export(float) var money = 50.0
+export(float) var income = 0.5
 export(int, 1, 10000) var wave = 1
 
 var lions_alive = 0
 
 func _ready():
+	set_process(true)
 	start_wait_time()
+
+func _process(delta):
+	if money < 100:
+		money += income * delta
 
 func get_enemy_count():
 	return 1 + 4 * wave
