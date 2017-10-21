@@ -1,9 +1,26 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://Controller/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Controller/Spawner.gd" type="Script" id=2]
 [ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=3]
 [ext_resource path="res://UI/placeholders/play.png" type="Texture" id=4]
+
+[sub_resource type="GDScript" id=1]
+
+script/source = "extends Label
+
+onready var timer = get_node(\"../AdminTimer\")
+onready var controller = get_parent()
+
+func _ready():
+	set_process(true)
+
+func _process(delta):
+	if timer.get_time_left() == 0.0:
+		set_text(\"Remaining enemies: \" + str(controller.get_enemy_count()))
+	else:
+		set_text(\"Next wave in \" + str(timer.get_time_left()) + \" s\")
+"
 
 [node name="Controller" type="CanvasLayer"]
 
@@ -32,7 +49,7 @@ autostart = false
 
 process_mode = 1
 wait_time = 1.0
-one_shot = false
+one_shot = true
 autostart = false
 
 [node name="play_button" type="TextureButton" parent="."]
@@ -52,7 +69,25 @@ textures/normal = ExtResource( 4 )
 params/resize_mode = 1
 params/stretch_mode = 0
 
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 57.0
+margin/top = 44.0
+margin/right = 610.0
+margin/bottom = 198.0
+text = "Debug"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = SubResource( 1 )
+
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_lion"]
+
+[connection signal="timeout" from="AdminTimer" to="." method="start_wave"]
 
 [connection signal="pressed" from="play_button" to="." method="start_wave"]
 

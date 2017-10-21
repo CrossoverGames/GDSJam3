@@ -31,3 +31,6 @@ func on_lion_dead(reward):
 	if lions_alive == 0:
 		advance_wave()
 		money += get_wave_reward()
+		var timer = get_node("AdminTimer")
+		timer.set_wait_time(get_wave_interval())
+		timer.start()
