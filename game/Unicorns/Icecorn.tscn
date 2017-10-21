@@ -47,10 +47,6 @@ transform/pos = Vector2( 20.7025, -25.9974 )
 transform/scale = Vector2( 0.249162, 0.249162 )
 frames = SubResource( 2 )
 
-[node name="cupcake_spawn" parent="."]
-
-transform/pos = Vector2( -7.70937, -96.0974 )
-
 [node name="LifeBar" parent="."]
 
 margin/top = -94.0

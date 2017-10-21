@@ -33,12 +33,12 @@ func scare(points):
 
 func rip():
 	ripped = true
-#	get_node("sprite").play("rip")
+	get_node("sprite").play("rip")
 	var bodies = get_overlapping_bodies()
 	for body in bodies:
 		if body.is_in_group("lion"):
 			body.get_node("Blocked").set_active(false)
-	queue_free()
+	#queue_free()
 
 func set_active(value):
 	active = value
