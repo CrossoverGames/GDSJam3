@@ -40,9 +40,11 @@ hp = 100
 speed = 40
 reward = 10
 damage = 10
+roar_interval = 1.5
 
 [node name="attack_area" type="Area2D" parent="."]
 
+editor/display_folded = true
 input/pickable = true
 shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -79,6 +81,7 @@ margin/bottom = -19.0
 
 [node name="Freeze" type="Node" parent="."]
 
+editor/display_folded = true
 script/script = ExtResource( 4 )
 enabled = false
 speed_scale = 0.5
@@ -90,8 +93,19 @@ wait_time = 5.0
 one_shot = true
 autostart = false
 
-[connection signal="body_enter" from="attack_area" to="." method="rawr"]
+[node name="RoarTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = false
+autostart = false
+
+[connection signal="body_enter" from="attack_area" to="." method="on_body_enter"]
+
+[connection signal="body_exit" from="attack_area" to="." method="on_body_exit"]
 
 [connection signal="timeout" from="Freeze/Timer" to="Freeze" method="set_enabled" binds= [ false ]]
+
+[connection signal="timeout" from="RoarTimer" to="." method="rawr"]
 
 

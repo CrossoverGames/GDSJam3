@@ -4,18 +4,16 @@ export(int) var hp = 100
 export(int) var speed = 40
 export(int) var reward = 10
 export(float) var damage = 10
+export(float) var roar_interval = 1.5
 
-var path_follow
-var lifebar
+onready var path_follow = get_parent()
+onready var lifebar = get_node("LifeBar")
+onready var roar_timer = get_node("RoarTimer")
 
 signal lion_dead(reward)
 
 func _ready():
-	path_follow = get_parent()
-	lifebar = get_node("LifeBar")
-	
 	lifebar.update_max_hp(hp)
-	
 	set_fixed_process(true)
 
 func _fixed_process(delta):
@@ -30,7 +28,17 @@ func hit(value):
 		queue_free()
 	lifebar.set_value(hp)
 
-func rawr(target):
-	if target.is_in_group("unicorn"):
-		print("rawr")
-		target.scare(damage)
+func on_body_enter(body):
+	if body.is_in_group("unicorn"):
+		rawr()
+		roar_timer.start()
+
+func on_body_exit(body):
+	if get_node("attack_area").get_overlapping_areas().empty():
+		roar_timer.stop()
+
+func rawr():
+	var targets = get_node("attack_area").get_overlapping_bodies()
+	for target in targets:
+		if target.is_in_group("unicorn"):
+			target.scare(damage)
