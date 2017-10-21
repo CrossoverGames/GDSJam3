@@ -14,6 +14,8 @@ var ripped = false
 var active = true
 var shooting = false
 
+var direction = 'l'
+
 func _ready():
 	var reach = get_node("range")
 	reach.connect("body_enter", self, "lion_enter")
@@ -54,12 +56,19 @@ func shoot_cupcake():
 		get_node("sprite").play("shoot")
 		yield(get_node("sprite"), "finished")
 		get_node("sprite").play("default")
+	
 	var cupcake = cupcake_scene.instance()
 	if not lions_in_range.empty():
 		if lions_in_range[0].hp > 0:
 			cupcake.set_target(lions_in_range[0])
-			cupcake.set_pos(get_node("cupcake_spawn").get_pos())
+			if lions_in_range[0].get_global_pos().x > get_global_pos().x and direction == 'l':
+				get_node("sprite").set_scale(Vector2(-get_node("sprite").get_scale().x, get_node("sprite").get_scale().y))
+				direction = 'r'
+			elif lions_in_range[0].get_global_pos().x < get_global_pos().x and direction == 'r':
+				get_node("sprite").set_scale(Vector2(-get_node("sprite").get_scale().x, get_node("sprite").get_scale().y))
+				direction = 'l'
 			self.add_child(cupcake)
+			cupcake.set_global_pos(get_node("sprite/cupcake_spawn").get_global_pos())
 
 func scare(points):
 	if not active or ripped: return
@@ -72,8 +81,8 @@ func scare(points):
 func rip():
 	ripped = true
 	shoot_timer.stop()
-#	get_node("sprite").play("rip")
-	queue_free()
+	get_node("sprite").play("rip")
+	#queue_free()
 
 func set_active(value):
 	active = value
