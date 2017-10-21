@@ -34,10 +34,12 @@ func on_body_enter(body):
 		roar_timer.start()
 
 func on_body_exit(body):
+	if is_queued_for_deletion(): return
 	if get_node("attack_area").get_overlapping_bodies().empty():
 		roar_timer.stop()
 
 func rawr():
+	if is_queued_for_deletion(): return
 	var targets = get_node("attack_area").get_overlapping_bodies()
 	for target in targets:
 		if target.is_in_group("unicorn"):

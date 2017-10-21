@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=2]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, -80.5694, 289.339, 0, 0, 38.4143, 21.7124, 43.0243, 314.392, 0, 0, 6.68074, 40.0845, 98.1404, 374.518, 0, 0, 43.4248, 3.34037, 141.565, 426.294, 0, 0, 53.4459, -23.3826, 195.011, 414.603, 0, 0, 18.372, -28.3932, 251.798, 354.476, 0, 0, 0, 0, 246.787, 292.679, 0, 0, 0, 0, 256.808, 209.17, 0, 0, 0, 0, 280.191, 165.745, 0, 0, 0, 0, 318.605, 147.373, 0, 0, 0, 0, 360.36, 130.671, 0, 0, 0, 0, 405.455, 130.671, 0, 0, 0, 0, 420.486, 162.405, 0, 0, 0, 0, 420.486, 215.851, 0, 0, 0, 0, 433.848, 270.967, 0, 0, 0, 0, 453.89, 316.062, 0, 0, 0, 0, 480.613, 357.817, 0, 0, 0, 0, 554.101, 374.518, 0, 0, 0, 0, 587.505, 349.466, 0, 0, 0, 0, 640.951, 289.339, 0, 0, 0, 0, 677.695, 267.626, 0, 0, 0, 0, 747.843, 215.851, 0, 0, 0, 0, 814.65, 185.787, 0, 0, 0, 0, 874.777, 205.83, 0, 0, 0, 0, 906.51, 242.574, 0, 0, 0, 0, 928.223, 287.669, 0, 0, 0, 0, 964.967, 344.455, 0, 0, 0, 0, 1015.07, 371.178, 0, 0, 0, 0, 1045.14, 374.518, 0, 0, 0, 0, 1118.62, 386.21 )
+}
+
+[node name="stage" type="Node2D"]
+
+[node name="Path2D" type="Path2D" parent="."]
+
+curve = SubResource( 1 )
+
+[node name="store_interface" parent="." instance=ExtResource( 1 )]
+
+layer = 5
+
+[node name="MouseControl" parent="store_interface"]
+
+towers_interface_path = NodePath("../TowersInterface")
+controller_path = NodePath("../../Controller")
+prices = FloatArray( 30, 50, 30 )
+
+[node name="Controller" parent="." instance=ExtResource( 2 )]
+
+editor/display_folded = true
+money = 50.0
+
+[node name="Spawner" parent="Controller"]
+
+lions_parent_path = NodePath("../../Path2D")
+
+
+[editable path="store_interface"]
+[editable path="Controller"]

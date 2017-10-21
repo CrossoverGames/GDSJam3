@@ -54,6 +54,7 @@ func shoot_cupcake():
 	self.add_child(cupcake)
 
 func scare(points):
+	if not active: return
 	health -= points
 	if health <= 0:
 		health = 0

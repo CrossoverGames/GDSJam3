@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Controller/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Controller/Spawner.gd" type="Script" id=2]
-[ext_resource path="res://Lion/Lion.tscn" type="PackedScene" id=3]
-[ext_resource path="res://UI/placeholders/play.png" type="Texture" id=4]
+[ext_resource path="res://Lion/LionFollow.tscn" type="PackedScene" id=3]
 
 [sub_resource type="GDScript" id=1]
 
@@ -16,10 +15,12 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	var text = \"Money: \" + str(controller.money)
 	if timer.get_time_left() == 0.0:
-		set_text(\"Remaining enemies: \" + str(controller.lions_alive))
+		text += \"\\nRemaining enemies: \" + str(controller.lions_alive)
 	else:
-		set_text(\"Next wave in \" + str(timer.get_time_left()) + \" s\")
+		text += \"\\nNext wave in \" + str(timer.get_time_left()) + \" s\"
+	set_text(text)
 "
 
 [node name="Controller" type="CanvasLayer"]
@@ -52,23 +53,6 @@ wait_time = 1.0
 one_shot = true
 autostart = false
 
-[node name="play_button" type="TextureButton" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 470.0
-margin/top = 490.0
-margin/right = 530.0
-margin/bottom = 550.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-textures/normal = ExtResource( 4 )
-params/resize_mode = 1
-params/stretch_mode = 0
-
 [node name="Label" type="Label" parent="."]
 
 focus/ignore_mouse = true
@@ -88,7 +72,5 @@ script/script = SubResource( 1 )
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="spawn_lion"]
 
 [connection signal="timeout" from="AdminTimer" to="." method="start_wave"]
-
-[connection signal="pressed" from="play_button" to="." method="start_wave"]
 
 

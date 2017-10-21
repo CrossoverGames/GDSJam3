@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
 export(float) var damage = 30.0
+export(float) var angular_speed = 360.0
 export(float) var max_speed = 150.0
 export(float, EASE) var speed_transition = 2
-export(float) var random = 20.0
+export(float) var random = 10.0
 
 var target_pos
 var direction
@@ -29,6 +30,7 @@ func _process(delta):
 	timer += delta
 	
 	self.move(direction * speed * delta)
+	self.rotate(deg2rad(angular_speed) * delta)
 	
 	if is_colliding():
 		var collider = get_collider()

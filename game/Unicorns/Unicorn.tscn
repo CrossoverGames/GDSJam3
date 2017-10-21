@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Unicorns/unicorn.gd" type="Script" id=1]
 [ext_resource path="res://Cupcakes/Cupcake.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Unicorns/sprite/unicorn.png" type="Texture" id=3]
+[ext_resource path="res://Unicorns/sprite/cannon.png" type="Texture" id=3]
 [ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -10,10 +10,10 @@
 custom_solver_bias = 0.0
 radius = 40.3117
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 248.383
+radius = 369.526
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -52,7 +52,7 @@ _update_shape_index = 0
 [node name="range" type="Area2D" parent="."]
 
 input/pickable = true
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 2 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -62,27 +62,27 @@ angular_damp = 1.0
 
 [node name="shape" type="CollisionShape2D" parent="range"]
 
-shape = SubResource( 4 )
+shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( 0.390756, 0 )
-transform/scale = Vector2( -0.2, 0.2 )
+transform/pos = Vector2( 0.460626, 0 )
+transform/scale = Vector2( 0.0602573, 0.0602574 )
 frames = SubResource( 3 )
 animation = "default"
 
 [node name="cupcake_spawn" type="Position2D" parent="."]
 
-transform/pos = Vector2( -52.9555, 0 )
+transform/pos = Vector2( -57.9556, 0 )
 
 [node name="LifeBar" parent="." instance=ExtResource( 4 )]
 
 margin/left = -36.0
-margin/top = -62.0
+margin/top = -111.0
 margin/right = 106.0
-margin/bottom = -22.0
+margin/bottom = -71.0
 
 [node name="selection_button" type="TextureButton" parent="."]
 

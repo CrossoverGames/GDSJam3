@@ -1,10 +1,15 @@
 extends Node2D
 
 export(NodePath) var towers_interface_path = @""
+export(NodePath) var controller_path = @""
+
+export(PackedScene) var unicorn_1
+export(PackedScene) var unicorn_2
+export(PackedScene) var unicorn_3
+
+export(FloatArray) var prices
 
 var pressed = false
-var evpos
-var object_clicked
 var towers_interface
 var moving_tower
 var towers = []
@@ -15,7 +20,7 @@ func _ready():
 	towers_interface = get_node(towers_interface_path)
 	towers = get_tree().get_nodes_in_group("tower_button")
 	for button in towers:
-		button.connect("pressed", self, "tower_button_pressed", [button])
+		button.connect("button_down", self, "tower_button_pressed", [button])
 	set_process_input(true)
 
 func _input(ev):
@@ -28,20 +33,25 @@ func _input(ev):
 
 	if ev.type == InputEvent.MOUSE_MOTION:
 		if pressed and moving_tower:
-			#evpos = ev.global_pos
 			moving_tower.set_global_pos(get_global_mouse_pos())
 
 func tower_button_pressed(button):
 	pressed = true
 	if button.type == Globals.get("Towers/FirstTower"):
-		create_new_tower("res://Unicorns/Unicorn.tscn")
+		if get_node(controller_path).money >= prices[0]:
+			get_node(controller_path).money -= prices[0]
+			create_new_tower(unicorn_1)
 	elif button.type == Globals.get("Towers/Second Tower"):
-		create_new_tower("res://Unicorns/Unicorn.tscn")
+		if get_node(controller_path).money >= prices[1]:
+			get_node(controller_path).money -= prices[1]
+			create_new_tower(unicorn_2)
 	elif button.type == Globals.get("Towers/Third Tower"):
-		create_new_tower("res://Unicorns/Unicorn.tscn")
+		if get_node(controller_path).money >= prices[2]:
+			get_node(controller_path).money -= prices[2]
+			create_new_tower(unicorn_3)
 		
-func create_new_tower(path):
-	var newtower = load(path)
-	var tower = newtower.instance()
-	get_parent().call_deferred("add_child", tower)
+func create_new_tower(scene):
+	var tower = scene.instance()
+	get_node("../..").call_deferred("add_child", tower)
 	moving_tower = tower
+	moving_tower.set_active(false)
