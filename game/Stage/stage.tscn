@@ -1,23 +1,458 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=31 format=1]
 
-[ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Stage/tile0.png" type="Texture" id=1]
+[ext_resource path="res://Stage/tile90.png" type="Texture" id=2]
+[ext_resource path="res://Stage/background.png" type="Texture" id=3]
+[ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Curve2D" id=1]
 
 bake_interval = 5.0
 _data = {
-"points": Vector2Array( 0, 0, 0, 0, -80.5694, 289.339, 0, 0, 38.4143, 21.7124, 43.0243, 314.392, 0, 0, 6.68074, 40.0845, 98.1404, 374.518, 0, 0, 43.4248, 3.34037, 141.565, 426.294, 0, 0, 53.4459, -23.3826, 195.011, 414.603, 0, 0, 18.372, -28.3932, 251.798, 354.476, 0, 0, 0, 0, 246.787, 292.679, 0, 0, 0, 0, 256.808, 209.17, 0, 0, 0, 0, 280.191, 165.745, 0, 0, 0, 0, 318.605, 147.373, 0, 0, 0, 0, 360.36, 130.671, 0, 0, 0, 0, 405.455, 130.671, 0, 0, 0, 0, 420.486, 162.405, 0, 0, 0, 0, 420.486, 215.851, 0, 0, 0, 0, 433.848, 270.967, 0, 0, 0, 0, 453.89, 316.062, 0, 0, 0, 0, 480.613, 357.817, 0, 0, 0, 0, 554.101, 374.518, 0, 0, 0, 0, 587.505, 349.466, 0, 0, 0, 0, 640.951, 289.339, 0, 0, 0, 0, 677.695, 267.626, 0, 0, 0, 0, 747.843, 215.851, 0, 0, 0, 0, 814.65, 185.787, 0, 0, 0, 0, 874.777, 205.83, 0, 0, 0, 0, 906.51, 242.574, 0, 0, 0, 0, 928.223, 287.669, 0, 0, 0, 0, 964.967, 344.455, 0, 0, 0, 0, 1015.07, 371.178, 0, 0, 0, 0, 1045.14, 374.518, 0, 0, 0, 0, 1118.62, 386.21 )
+"points": Vector2Array( 0, 0, 0, 0, -18.5704, 411.705, 0, 0, 0, 0, 64.3332, 411.705, 0, 0, 0, 0, 139.7, 411.705, 0, 0, 0, 0, 207.531, 407.183, 0, 0, 0, 0, 236.17, 381.558, 0, 0, 0, 0, 239.185, 331.816, 0, 0, 0, 0, 239.185, 239.868, 0, 0, 0, 0, 242.199, 162.994, 0, 0, 0, 0, 276.868, 119.281, 0, 0, 0, 0, 334.147, 110.237, 0, 0, 0, 0, 385.397, 113.252, 0, 0, 0, 0, 429.109, 123.803, 0, 0, 0, 0, 453.227, 152.443, 0, 0, 0, 0, 457.749, 208.214, 0, 0, 0, 0, 457.749, 276.044, 0, 0, 0, 0, 474.33, 306.191, 0, 0, 0, 0, 502.969, 324.279, 0, 0, 0, 0, 551.204, 325.787, 0, 0, 0, 0, 588.887, 327.294, 0, 0, 0, 0, 629.586, 319.757, 0, 0, 0, 0, 655.21, 297.147, 0, 0, 0, 0, 664.254, 259.464, 0, 0, 0, 0, 664.254, 212.736, 0, 0, 0, 0, 664.254, 164.501, 0, 0, 0, 0, 682.343, 134.355, 0, 0, 0, 0, 718.519, 113.252, 0, 0, 0, 0, 759.217, 111.744, 0, 0, 0, 0, 805.944, 110.237, 0, 0, 0, 0, 843.628, 119.281, 0, 0, 0, 0, 869.253, 144.906, 0, 0, 0, 0, 881.311, 182.589, 0, 0, 0, 0, 882.819, 227.81, 0, 0, 0, 0, 876.789, 286.596, 0, 0, 0, 0, 878.297, 336.338, 0, 0, 0, 0, 882.819, 380.051, 0, 0, 0, 0, 906.936, 405.676, 0, 0, 0, 0, 938.59, 417.734, 0, 0, 0, 0, 976.274, 420.749, 0, 0, 0, 0, 1045.61, 417.734 )
 }
 
+[sub_resource type="ConvexPolygonShape2D" id=2]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 98.3718, 450.403, -3.62817, 449.403, -32.6282, 423.403, -28.6282, 376.403, 24.3718, 372.403, 96.3718, 374.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 248.372, 432.403, 196.372, 453.403, 98.3718, 450.403, 96.3718, 374.403, 187.372, 375.403, 272.372, 393.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 272.372, 393.403, 187.372, 375.403, 202.372, 359.403, 283.372, 346.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 283.372, 346.403, 202.372, 359.403, 204.372, 331.403, 280.372, 256.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 279.372, 180.403, 280.372, 256.403, 204.372, 331.403, 203.372, 182.403, 205.372, 134.403, 251.372, 86.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 288.372, 157.403, 279.372, 180.403, 251.372, 86.4032, 288.372, 75.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=8]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 305.372, 149.403, 288.372, 157.403, 288.372, 75.4032, 415.372, 75.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=9]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 393.372, 149.403, 305.372, 149.403, 415.372, 75.4032, 449.372, 90.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=10]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 410.372, 157.403, 393.372, 149.403, 449.372, 90.4032, 483.372, 125.403, 491.372, 163.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=11]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 418.372, 174.403, 410.372, 157.403, 491.372, 163.403, 491.372, 271.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=12]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 423.372, 307.403, 417.372, 275.403, 417.372, 229.403, 418.372, 174.403, 491.372, 271.403, 461.372, 351.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=13]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 461.372, 351.403, 491.372, 271.403, 505.372, 285.403, 521.372, 369.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=14]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 642.372, 360.403, 521.372, 369.403, 505.372, 285.403, 604.372, 286.403, 691.372, 321.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=15]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 691.372, 321.403, 604.372, 286.403, 617.372, 282.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=16]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 704.372, 288.403, 691.372, 321.403, 617.372, 282.403, 628.372, 274.403, 704.372, 229.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=17]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 704.372, 229.403, 628.372, 274.403, 628.372, 215.403, 703.372, 173.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=18]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 712.372, 154.403, 703.372, 173.403, 628.372, 215.403, 628.372, 161.403, 636.372, 128.403, 681.372, 85.4032, 724.372, 74.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=19]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 764.372, 150.403, 712.372, 154.403, 724.372, 74.4032, 810.372, 74.4032 )
+
+[sub_resource type="ConvexPolygonShape2D" id=20]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 826.372, 152.403, 764.372, 150.403, 810.372, 74.4032, 859.372, 82.4032, 888.372, 102.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=21]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 840.372, 164.403, 826.372, 152.403, 888.372, 102.403, 914.372, 137.403, 919.372, 193.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=22]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 843.372, 183.403, 840.372, 164.403, 919.372, 193.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=23]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 863.372, 419.403, 845.372, 394.403, 842.372, 334.403, 843.372, 183.403, 919.372, 193.403, 918.372, 366.403, 890.372, 443.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=24]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 927.372, 458.403, 890.372, 443.403, 918.372, 366.403, 936.372, 383.403, 978.372, 458.403 )
+
+[sub_resource type="ConvexPolygonShape2D" id=25]
+
+custom_solver_bias = 0.0
+points = Vector2Array( 1049.37, 432.403, 1035.37, 458.403, 978.372, 458.403, 936.372, 383.403, 1037.37, 381.403, 1048.37, 393.403 )
+
 [node name="stage" type="Node2D"]
+
+[node name="path" type="Node2D" parent="."]
+
+[node name="tile" type="TextureFrame" parent="path"]
+
+visibility/behind_parent = true
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 86.0
+margin/top = 465.0
+margin/right = 286.0
+margin/bottom = 665.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile10" type="TextureFrame" parent="path"]
+
+visibility/behind_parent = true
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 724.0
+margin/top = 165.0
+margin/right = 924.0
+margin/bottom = 365.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile19" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 937.0
+margin/top = 472.0
+margin/right = 1137.0
+margin/bottom = 672.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile13" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 297.0
+margin/top = 164.0
+margin/right = 497.0
+margin/bottom = 364.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile14" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 511.0
+margin/top = 377.0
+margin/right = 711.0
+margin/bottom = 577.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile1" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = -7.0
+margin/top = 465.0
+margin/right = 193.0
+margin/bottom = 665.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile2" type="TextureFrame" parent="path"]
+
+rect/rotation = 180.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 279.0
+margin/top = 449.0
+margin/right = 479.0
+margin/bottom = 649.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile8" type="TextureFrame" parent="path"]
+
+rect/rotation = 180.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 705.0
+margin/top = 361.0
+margin/right = 905.0
+margin/bottom = 561.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile3" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 190.0
+margin/top = 258.0
+margin/right = 390.0
+margin/bottom = 458.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile4" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 189.0
+margin/top = 170.0
+margin/right = 389.0
+margin/bottom = 370.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile15" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 403.0
+margin/top = 167.0
+margin/right = 603.0
+margin/bottom = 367.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile16" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 615.0
+margin/top = 170.0
+margin/right = 815.0
+margin/bottom = 370.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile17" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 829.0
+margin/top = 170.0
+margin/right = 1029.0
+margin/bottom = 370.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile18" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 828.0
+margin/top = 263.0
+margin/right = 1028.0
+margin/bottom = 463.0
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="tile5" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 204.0
+margin/top = 77.0
+margin/right = 404.0
+margin/bottom = 277.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile9" type="TextureFrame" parent="path"]
+
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 630.0
+margin/top = 78.0
+margin/right = 830.0
+margin/bottom = 278.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile6" type="TextureFrame" parent="path"]
+
+rect/rotation = 270.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 491.0
+margin/top = 75.0
+margin/right = 691.0
+margin/bottom = 275.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile11" type="TextureFrame" parent="path"]
+
+rect/rotation = 270.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 917.0
+margin/top = 76.0
+margin/right = 1117.0
+margin/bottom = 276.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile7" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 419.0
+margin/top = 362.0
+margin/right = 619.0
+margin/bottom = 562.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="tile12" type="TextureFrame" parent="path"]
+
+rect/rotation = 90.0
+rect/scale = Vector2( 0.5, 0.5 )
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 844.0
+margin/top = 457.0
+margin/right = 1044.0
+margin/bottom = 657.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="TextureFrame" type="TextureFrame" parent="."]
+
+visibility/behind_parent = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 3.0
+margin/top = 0.0
+margin/right = 1027.0
+margin/bottom = 600.0
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 0
 
 [node name="Path2D" type="Path2D" parent="."]
 
 curve = SubResource( 1 )
 
-[node name="store_interface" parent="." instance=ExtResource( 1 )]
+[node name="store_interface" parent="." instance=ExtResource( 4 )]
 
+editor/display_folded = true
 layer = 5
 
 [node name="MouseControl" parent="store_interface"]
@@ -26,7 +461,7 @@ towers_interface_path = NodePath("../TowersInterface")
 controller_path = NodePath("../../Controller")
 prices = FloatArray( 30, 50, 30 )
 
-[node name="Controller" parent="." instance=ExtResource( 2 )]
+[node name="Controller" parent="." instance=ExtResource( 5 )]
 
 editor/display_folded = true
 money = 50.0
@@ -34,6 +469,93 @@ money = 50.0
 [node name="Spawner" parent="Controller"]
 
 lions_parent_path = NodePath("../../Path2D")
+
+[node name="path_area" type="Area2D" parent="."]
+
+input/pickable = true
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+shapes/1/shape = SubResource( 3 )
+shapes/1/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/1/trigger = false
+shapes/2/shape = SubResource( 4 )
+shapes/2/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/2/trigger = false
+shapes/3/shape = SubResource( 5 )
+shapes/3/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/3/trigger = false
+shapes/4/shape = SubResource( 6 )
+shapes/4/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/4/trigger = false
+shapes/5/shape = SubResource( 7 )
+shapes/5/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/5/trigger = false
+shapes/6/shape = SubResource( 8 )
+shapes/6/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/6/trigger = false
+shapes/7/shape = SubResource( 9 )
+shapes/7/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/7/trigger = false
+shapes/8/shape = SubResource( 10 )
+shapes/8/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/8/trigger = false
+shapes/9/shape = SubResource( 11 )
+shapes/9/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/9/trigger = false
+shapes/10/shape = SubResource( 12 )
+shapes/10/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/10/trigger = false
+shapes/11/shape = SubResource( 13 )
+shapes/11/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/11/trigger = false
+shapes/12/shape = SubResource( 14 )
+shapes/12/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/12/trigger = false
+shapes/13/shape = SubResource( 15 )
+shapes/13/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/13/trigger = false
+shapes/14/shape = SubResource( 16 )
+shapes/14/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/14/trigger = false
+shapes/15/shape = SubResource( 17 )
+shapes/15/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/15/trigger = false
+shapes/16/shape = SubResource( 18 )
+shapes/16/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/16/trigger = false
+shapes/17/shape = SubResource( 19 )
+shapes/17/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/17/trigger = false
+shapes/18/shape = SubResource( 20 )
+shapes/18/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/18/trigger = false
+shapes/19/shape = SubResource( 21 )
+shapes/19/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/19/trigger = false
+shapes/20/shape = SubResource( 22 )
+shapes/20/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/20/trigger = false
+shapes/21/shape = SubResource( 23 )
+shapes/21/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/21/trigger = false
+shapes/22/shape = SubResource( 24 )
+shapes/22/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/22/trigger = false
+shapes/23/shape = SubResource( 25 )
+shapes/23/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/23/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="path_area"]
+
+build_mode = 0
+polygon = Vector2Array( -3.62817, 449.403, 98.3718, 450.403, 196.372, 453.403, 248.372, 432.403, 272.372, 393.403, 283.372, 346.403, 280.372, 256.403, 279.372, 180.403, 288.372, 157.403, 305.372, 149.403, 393.372, 149.403, 410.372, 157.403, 418.372, 174.403, 417.372, 229.403, 417.372, 275.403, 423.372, 307.403, 461.372, 351.403, 521.372, 369.403, 642.372, 360.403, 691.372, 321.403, 704.372, 288.403, 704.372, 229.403, 703.372, 173.403, 712.372, 154.403, 764.372, 150.403, 826.372, 152.403, 840.372, 164.403, 843.372, 183.403, 842.372, 334.403, 845.372, 394.403, 863.372, 419.403, 890.372, 443.403, 927.372, 458.403, 978.372, 458.403, 1035.37, 458.403, 1049.37, 432.403, 1048.37, 393.403, 1037.37, 381.403, 936.372, 383.403, 918.372, 366.403, 919.372, 193.403, 914.372, 137.403, 888.372, 102.403, 859.372, 82.4032, 810.372, 74.4032, 724.372, 74.4032, 681.372, 85.4032, 636.372, 128.403, 628.372, 161.403, 628.372, 215.403, 628.372, 274.403, 617.372, 282.403, 604.372, 286.403, 505.372, 285.403, 491.372, 271.403, 491.372, 163.403, 483.372, 125.403, 449.372, 90.4032, 415.372, 75.4032, 288.372, 75.4032, 251.372, 86.4032, 205.372, 134.403, 203.372, 182.403, 204.372, 331.403, 202.372, 359.403, 187.372, 375.403, 96.3718, 374.403, 24.3718, 372.403, -28.6282, 376.403, -32.6282, 423.403 )
+shape_range = Vector2( 0, 23 )
+trigger = false
 
 
 [editable path="store_interface"]

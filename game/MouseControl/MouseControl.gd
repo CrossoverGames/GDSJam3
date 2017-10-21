@@ -28,8 +28,17 @@ func _input(ev):
 		pressed = ev.pressed
 		emit_signal("mouse_clicked", ev.global_pos)
 		if not pressed and moving_tower:
-			moving_tower.set_active(true)
-			moving_tower = null
+			var areas = moving_tower.get_node("tower").get_overlapping_areas()
+			var can_place = true
+			for area in areas:
+				if area.get_name() == "path_area":
+					can_place = false
+			if can_place:
+				moving_tower.set_active(true)
+				moving_tower = null
+			else:
+				moving_tower.set_global_pos(get_global_mouse_pos())
+				pressed = true
 
 	if ev.type == InputEvent.MOUSE_MOTION:
 		if pressed and moving_tower:
