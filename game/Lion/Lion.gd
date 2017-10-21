@@ -10,6 +10,8 @@ onready var path_follow = get_parent()
 onready var lifebar = get_node("LifeBar")
 onready var roar_timer = get_node("RoarTimer")
 
+var flipped = false
+
 signal lion_dead(reward)
 
 func _ready():
@@ -19,7 +21,15 @@ func _ready():
 
 func _fixed_process(delta):
 	var offset = path_follow.get_offset()
+	var last_pos = get_global_pos()
 	path_follow.set_offset(offset + (speed * delta))
+	var x_direction = get_global_pos().x - last_pos.x
+	if x_direction < -1 and not flipped:
+		get_node("AnimatedSprite").set_flip_h(true)
+		flipped = true
+	if x_direction >= -1 and flipped:
+		get_node("AnimatedSprite").set_flip_h(true)
+		flipped = false
 	
 func hit(value):
 	hp -= value
@@ -31,6 +41,7 @@ func hit(value):
 		get_node("AnimatedSprite").play("rip")
 		get_node("CollisionShape2D").queue_free()
 		get_node("LifeBar").queue_free()
+		damage = 0
 		set_fixed_process(false)
 	lifebar.set_value(hp)
 
