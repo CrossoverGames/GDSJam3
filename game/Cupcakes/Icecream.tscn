@@ -17,14 +17,13 @@ animations = [ {
 
 script/script = ExtResource( 2 )
 damage = 15.0
-angular_speed = 360.0
 max_speed = 150.0
 speed_transition = 0.170755
 
 [node name="sprite" parent="."]
 
-transform/pos = Vector2( 0.168975, -3.77874 )
-transform/scale = Vector2( 0.0376754, 0.0376754 )
+transform/pos = Vector2( 0.168975, -7.47751 )
+transform/scale = Vector2( 0.0757045, 0.0757045 )
 frames = SubResource( 1 )
 
 

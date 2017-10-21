@@ -2,6 +2,7 @@ extends Node2D
 
 export(NodePath) var towers_interface_path = @""
 export(NodePath) var controller_path = @""
+export(NodePath) var unicorns_parent = @""
 
 export(PackedScene) var unicorn_1
 export(PackedScene) var unicorn_2
@@ -20,16 +21,25 @@ func _ready():
 	towers_interface = get_node(towers_interface_path)
 	towers = get_tree().get_nodes_in_group("tower_button")
 	for button in towers:
-		button.connect("button_down", self, "tower_button_pressed", [button])
+		button.connect("pressed", self, "tower_button_pressed", [button])
 	set_process_input(true)
 
 func _input(ev):
 	if ev.type == InputEvent.MOUSE_BUTTON and ev.button_index == BUTTON_LEFT:
 		pressed = ev.pressed
 		emit_signal("mouse_clicked", ev.global_pos)
-		if not pressed:
-			moving_tower.set_active(true)
-			moving_tower = null
+		if not pressed and moving_tower:
+			var areas = moving_tower.get_node("tower").get_overlapping_areas()
+			var can_place = true
+			for area in areas:
+				if area.get_name() == "path_area":
+					can_place = false
+			if can_place:
+				moving_tower.set_active(true)
+				moving_tower = null
+			else:
+				moving_tower.set_global_pos(get_global_mouse_pos())
+				pressed = true
 
 	if ev.type == InputEvent.MOUSE_MOTION:
 		if pressed and moving_tower:
@@ -52,6 +62,6 @@ func tower_button_pressed(button):
 		
 func create_new_tower(scene):
 	var tower = scene.instance()
-	get_node("../..").call_deferred("add_child", tower)
+	get_node(unicorns_parent).call_deferred("add_child", tower)
 	moving_tower = tower
 	moving_tower.set_active(false)

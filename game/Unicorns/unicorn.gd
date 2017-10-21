@@ -12,6 +12,7 @@ var lions_in_range = []
 
 var ripped = false
 var active = true
+var shooting = false
 
 func _ready():
 	var reach = get_node("range")
@@ -34,7 +35,8 @@ func lion_enter(lion):
 	if not lion.is_in_group("lion"): return
 	lions_in_range.append(lion)
 	
-	if lions_in_range.size() == 1:
+	if not lions_in_range.empty() and not shooting:
+		shooting = true
 		shoot_cupcake()
 		shoot_timer.start()
 
@@ -44,6 +46,7 @@ func lion_exit(lion):
 
 func shoot_cupcake():
 	if ripped or not active or lions_in_range.empty():
+		shooting = false
 		shoot_timer.stop()
 		return
 	

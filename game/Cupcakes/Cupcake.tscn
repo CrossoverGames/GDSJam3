@@ -28,9 +28,10 @@ collision/mask = 2
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 damage = 45.0
+angular_speed = 360.0
 max_speed = 300.0
 speed_transition = 0.615572
-random = 20.0
+random = 10.0
 
 [node name="shape" type="CollisionShape2D" parent="." groups=[
 "cupcake",
