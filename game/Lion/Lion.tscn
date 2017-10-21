@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://Lion/Lion.gd" type="Script" id=1]
 [ext_resource path="res://Lion/sprite/lion.png" type="Texture" id=2]
 [ext_resource path="res://Lion/sprite/walk-1.png" type="Texture" id=3]
 [ext_resource path="res://Lion/sprite/walk-2.png" type="Texture" id=4]
-[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Lion/freeze.gd" type="Script" id=6]
-[ext_resource path="res://Lion/blocked.gd" type="Script" id=7]
+[ext_resource path="res://Lion/sprite/Leãozinho Ferido.png" type="Texture" id=5]
+[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Lion/freeze.gd" type="Script" id=7]
+[ext_resource path="res://Lion/blocked.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -29,6 +30,11 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "rip",
 "speed": 5.0
 } ]
 
@@ -83,7 +89,7 @@ shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
-[node name="LifeBar" parent="." instance=ExtResource( 5 )]
+[node name="LifeBar" parent="." instance=ExtResource( 6 )]
 
 margin/left = -36.0
 margin/top = -59.0
@@ -93,7 +99,7 @@ margin/bottom = -19.0
 [node name="Freeze" type="Node" parent="."]
 
 editor/display_folded = true
-script/script = ExtResource( 6 )
+script/script = ExtResource( 7 )
 enabled = false
 speed_scale = 0.5
 
@@ -106,7 +112,7 @@ autostart = false
 
 [node name="Blocked" type="Node" parent="."]
 
-script/script = ExtResource( 7 )
+script/script = ExtResource( 8 )
 active = false
 
 [node name="RoarTimer" type="Timer" parent="."]

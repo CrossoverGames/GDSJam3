@@ -26,7 +26,12 @@ func hit(value):
 	if hp <= 0:
 		hp = 0
 		emit_signal("lion_dead", reward)
-		queue_free()
+		#queue_free()
+		remove_from_group("lion")
+		get_node("AnimatedSprite").play("rip")
+		get_node("CollisionShape2D").queue_free()
+		get_node("LifeBar").queue_free()
+		set_fixed_process(false)
 	lifebar.set_value(hp)
 
 func on_body_enter(body):

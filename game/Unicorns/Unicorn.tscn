@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Unicorns/unicorn.gd" type="Script" id=1]
 [ext_resource path="res://Cupcakes/Cupcake.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Unicorns/sprite/cannon.png" type="Texture" id=3]
-[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Unicorns/sprite/Canhão-1.png" type="Texture" id=3]
+[ext_resource path="res://Unicorns/sprite/Canhão-2.png" type="Texture" id=4]
+[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -22,6 +23,16 @@ animations = [ {
 "loop": true,
 "name": "default",
 "speed": 5.0
+}, {
+"frames": [  ],
+"loop": false,
+"name": "rip",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "shoot",
+"speed": 12.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=4]
@@ -74,8 +85,8 @@ _update_shape_index = 0
 
 [node name="sprite" type="AnimatedSprite" parent="."]
 
-transform/pos = Vector2( 0.460626, 0 )
-transform/scale = Vector2( 0.0602573, 0.0602574 )
+transform/pos = Vector2( 0.991177, 0.480879 )
+transform/scale = Vector2( 0.25399, 0.25399 )
 frames = SubResource( 3 )
 animation = "default"
 
@@ -83,12 +94,12 @@ animation = "default"
 
 transform/pos = Vector2( -57.9556, 0 )
 
-[node name="LifeBar" parent="." instance=ExtResource( 4 )]
+[node name="LifeBar" parent="." instance=ExtResource( 5 )]
 
-margin/left = -36.0
-margin/top = -111.0
-margin/right = 106.0
-margin/bottom = -71.0
+margin/left = -32.0
+margin/top = -83.0
+margin/right = 653.0
+margin/bottom = 56.0
 
 [node name="selection_button" type="TextureButton" parent="."]
 

@@ -56,9 +56,10 @@ func shoot_cupcake():
 		get_node("sprite").play("default")
 	var cupcake = cupcake_scene.instance()
 	if not lions_in_range.empty():
-		cupcake.set_target(lions_in_range[0])
-		cupcake.set_pos(get_node("cupcake_spawn").get_pos())
-		self.add_child(cupcake)
+		if lions_in_range[0].hp > 0:
+			cupcake.set_target(lions_in_range[0])
+			cupcake.set_pos(get_node("cupcake_spawn").get_pos())
+			self.add_child(cupcake)
 
 func scare(points):
 	if not active or ripped: return

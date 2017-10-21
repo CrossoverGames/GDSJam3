@@ -16,14 +16,19 @@ animations = [ {
 [node name="Icecream" instance=ExtResource( 1 )]
 
 script/script = ExtResource( 2 )
-damage = 15.0
 max_speed = 150.0
 speed_transition = 0.170755
+
+[node name="shape" parent="."]
+
+transform/pos = Vector2( 4.22979, -4.87485 )
+transform/scale = Vector2( 1.54973, 1.54973 )
 
 [node name="sprite" parent="."]
 
 transform/pos = Vector2( 0.168975, -7.47751 )
-transform/scale = Vector2( 0.0757045, 0.0757045 )
+transform/rot = 59.0876
+transform/scale = Vector2( 0.05853, 0.05853 )
 frames = SubResource( 1 )
 
 
