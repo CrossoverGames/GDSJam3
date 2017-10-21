@@ -12,7 +12,7 @@ var lions_in_range = []
 
 var ripped = false
 
-var active = false
+var active = true
 
 func _ready():
 	var reach = get_node("range")
@@ -20,6 +20,7 @@ func _ready():
 	reach.connect("body_exit", self, "lion_exit")
 	
 	lifebar.update_max_hp(health)
+	lifebar.set_value(health)
 	
 	shoot_timer = Timer.new()
 	shoot_timer.set_name("shoot_timer")
