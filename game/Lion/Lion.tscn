@@ -12,7 +12,7 @@ radius = 32.6488
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 87.3753
+radius = 113.289
 
 [sub_resource type="SpriteFrames" id=3]
 
@@ -31,13 +31,14 @@ input/pickable = false
 shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
-collision/layers = 1
+collision/layers = 3
 collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 1 )
 hp = 100
 speed = 40
 reward = 10
+damage = 10
 
 [node name="attack_area" type="Area2D" parent="."]
 
@@ -73,5 +74,7 @@ margin/left = -36.0
 margin/top = -59.0
 margin/right = 106.0
 margin/bottom = -19.0
+
+[connection signal="body_enter" from="attack_area" to="." method="rawr"]
 
 

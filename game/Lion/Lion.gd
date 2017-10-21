@@ -3,6 +3,7 @@ extends KinematicBody2D
 export(int) var hp = 100
 export(int) var speed = 40
 export(int) var reward = 10
+export(float) var damage = 10
 
 var path_follow
 var lifebar
@@ -22,11 +23,14 @@ func _fixed_process(delta):
 	path_follow.set_offset(offset + (speed * delta))
 	
 func hit(value):
-	if hp > 0:
-		hp -= value
-		lifebar.set_value(hp)
-	else:
+	hp -= value
+	if hp <= 0:
+		hp = 0
 		emit_signal("lion_dead", reward)
 		queue_free()
-		
-	
+	lifebar.set_value(hp)
+
+func rawr(target):
+	if target.is_in_group("unicorn"):
+		print("rawr")
+		target.scare(damage)
