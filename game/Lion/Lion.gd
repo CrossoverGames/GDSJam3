@@ -34,7 +34,7 @@ func on_body_enter(body):
 		roar_timer.start()
 
 func on_body_exit(body):
-	if get_node("attack_area").get_overlapping_areas().empty():
+	if get_node("attack_area").get_overlapping_bodies().empty():
 		roar_timer.stop()
 
 func rawr():
