@@ -6,15 +6,15 @@
 
 [node name="LifeBar" type="TextureProgress"]
 
-rect/scale = Vector2( 0.5, 0.5 )
+rect/scale = Vector2( 0.1, 0.1 )
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
 margin/left = 0.0
 margin/top = 0.0
-margin/right = 142.0
-margin/bottom = 40.0
+margin/right = 685.0
+margin/bottom = 139.0
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
@@ -28,6 +28,6 @@ texture/progress = ExtResource( 2 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 script/script = ExtResource( 3 )
-max_hp = 100
+max_hp = 100.0
 
 

@@ -11,7 +11,6 @@ var shoot_timer
 var lions_in_range = []
 
 var ripped = false
-
 var active = true
 
 func _ready():
@@ -54,7 +53,7 @@ func shoot_cupcake():
 	self.add_child(cupcake)
 
 func scare(points):
-	if not active: return
+	if not active or ripped: return
 	health -= points
 	if health <= 0:
 		health = 0

@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Unicorns/pillow_fort.gd" type="Script" id=1]
+[ext_resource path="res://Unicorns/sprite/pillow-fort.png" type="Texture" id=2]
+[ext_resource path="res://LifeBar/LifeBar.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 120.347, 73.0695 )
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="pillow_fort" type="StaticBody2D"]
+
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+script/script = ExtResource( 1 )
+health = 200.0
+
+[node name="shape" type="CollisionShape2D" parent="."]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="sprite" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 0, 0.447707 )
+transform/scale = Vector2( 0.104588, 0.104588 )
+frames = SubResource( 1 )
+animation = "default"
+
+[node name="LifeBar" parent="." instance=ExtResource( 3 )]
+
+margin/left = -35.0
+margin/top = -111.0
+margin/right = 107.0
+margin/bottom = -71.0
+
+

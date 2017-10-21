@@ -79,10 +79,10 @@ transform/pos = Vector2( -57.9556, 0 )
 
 [node name="LifeBar" parent="." instance=ExtResource( 4 )]
 
-margin/left = -36.0
-margin/top = -111.0
-margin/right = 106.0
-margin/bottom = -71.0
+margin/left = -29.0
+margin/top = -93.0
+margin/right = 656.0
+margin/bottom = 46.0
 
 [node name="selection_button" type="TextureButton" parent="."]
 
@@ -99,5 +99,30 @@ enabled_focus_mode = 2
 shortcut = null
 params/resize_mode = 0
 params/stretch_mode = 0
+
+[node name="Particles2D" type="Particles2D" parent="."]
+
+transform/pos = Vector2( -50.6148, -0.440125 )
+config/amount = 32
+config/lifetime = 2.0
+config/emitting = false
+config/process_mode = 1
+config/half_extents = Vector2( 0, 5 )
+params/direction = 270.0
+params/spread = 60.0
+params/linear_velocity = 70.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 0.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
 
 
