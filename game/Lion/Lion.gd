@@ -41,6 +41,8 @@ func on_body_exit(body):
 func rawr():
 	if is_queued_for_deletion(): return
 	var targets = get_node("attack_area").get_overlapping_bodies()
+	targets += get_node("attack_area").get_overlapping_areas()
+	
 	for target in targets:
 		if target.is_in_group("unicorn"):
 			target.scare(damage)
