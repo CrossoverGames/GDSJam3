@@ -4,10 +4,10 @@
 [ext_resource path="res://Stage/tile90.png" type="Texture" id=2]
 [ext_resource path="res://Stage/tile45.png" type="Texture" id=3]
 [ext_resource path="res://Stage/background.png" type="Texture" id=4]
-[ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=6]
-[ext_resource path="res://StageSprites/montanha-1.png" type="Texture" id=7]
-[ext_resource path="res://StageSprites/montanha-2.png" type="Texture" id=8]
+[ext_resource path="res://StageSprites/montanha-1.png" type="Texture" id=5]
+[ext_resource path="res://StageSprites/montanha-2.png" type="Texture" id=6]
+[ext_resource path="res://Interface/store_interface.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Controller/Controller.tscn" type="PackedScene" id=8]
 [ext_resource path="res://StageSprites/Pênis Arbóreo.png" type="Texture" id=9]
 [ext_resource path="res://StageSprites/Arvere.png" type="Texture" id=10]
 [ext_resource path="res://StageSprites/montanha-3.png" type="Texture" id=11]
@@ -774,8 +774,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="store_interface" parent="." instance=ExtResource( 5 )]
+[node name="Sprite3" type="Sprite" parent="."]
 
+transform/pos = Vector2( 80.7805, -3.81259 )
+transform/scale = Vector2( 0.307737, 0.307737 )
+texture = ExtResource( 5 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+
+transform/pos = Vector2( 49.8302, 133.579 )
+transform/scale = Vector2( 0.179147, 0.179147 )
+texture = ExtResource( 6 )
+
+[node name="store_interface" parent="." instance=ExtResource( 7 )]
+
+editor/display_folded = true
 layer = 5
 
 [node name="MouseControl" parent="store_interface"]
@@ -789,7 +802,7 @@ prices = FloatArray( 30, 50, 30 )
 
 controller_path = NodePath("../../../Controller")
 
-[node name="Controller" parent="." instance=ExtResource( 6 )]
+[node name="Controller" parent="." instance=ExtResource( 8 )]
 
 editor/display_folded = true
 money = 50.0
@@ -954,18 +967,6 @@ transform/rot = 90.0
 shape = SubResource( 30 )
 trigger = false
 _update_shape_index = 31
-
-[node name="Sprite3" type="Sprite" parent="."]
-
-transform/pos = Vector2( 80.7805, -3.81259 )
-transform/scale = Vector2( 0.307737, 0.307737 )
-texture = ExtResource( 7 )
-
-[node name="Sprite6" type="Sprite" parent="."]
-
-transform/pos = Vector2( 49.8302, 133.579 )
-transform/scale = Vector2( 0.179147, 0.179147 )
-texture = ExtResource( 8 )
 
 [node name="YSort" type="YSort" parent="."]
 

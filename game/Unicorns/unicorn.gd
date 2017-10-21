@@ -50,10 +50,15 @@ func shoot_cupcake():
 		shoot_timer.stop()
 		return
 	
+	if get_node("sprite").get_sprite_frames().has_animation("shoot"):
+		get_node("sprite").play("shoot")
+		yield(get_node("sprite"), "finished")
+		get_node("sprite").play("default")
 	var cupcake = cupcake_scene.instance()
-	cupcake.set_target(lions_in_range[0])
-	cupcake.set_pos(get_node("cupcake_spawn").get_pos())
-	self.add_child(cupcake)
+	if not lions_in_range.empty():
+		cupcake.set_target(lions_in_range[0])
+		cupcake.set_pos(get_node("cupcake_spawn").get_pos())
+		self.add_child(cupcake)
 
 func scare(points):
 	if not active or ripped: return
