@@ -11,8 +11,9 @@ func _ready():
 
 func _process(delta):
 	var text = "Money: " + str(controller.money)
+	text += "\nWave " + str(controller.wave) + ". "
 	if timer.get_time_left() == 0.0:
-		text += "\nRemaining enemies: " + str(controller.lions_alive)
+		text += "Remaining enemies: " + str(controller.lions_alive)
 	else:
-		text += "\nNext wave in " + str(ceil(timer.get_time_left())) + " s"
+		text += "Next wave in " + str(ceil(timer.get_time_left())) + " s"
 	set_text(text)
