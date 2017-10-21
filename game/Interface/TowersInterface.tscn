@@ -1,10 +1,19 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Interface/TowersInterface.gd" type="Script" id=1]
 [ext_resource path="res://Interface/canhão.png" type="Texture" id=2]
 [ext_resource path="res://Interface/button.gd" type="Script" id=3]
 [ext_resource path="res://Interface/catapulta.png" type="Texture" id=4]
 [ext_resource path="res://Interface/morteiro.png" type="Texture" id=5]
+[ext_resource path="res://Interface/Font/HammersmithOne-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Interface/text.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+
+font/size = 21
+font/use_mipmaps = false
+font/use_filter = false
+font/font = ExtResource( 6 )
 
 [node name="TowersInterface" type="Node2D"]
 
@@ -126,5 +135,23 @@ text = "70"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="Label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 393.0
+margin/top = 42.0
+margin/right = 492.0
+margin/bottom = 76.0
+custom_fonts/font = SubResource( 1 )
+text = "Debug"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script/script = ExtResource( 7 )
+controller_path = null
 
 
