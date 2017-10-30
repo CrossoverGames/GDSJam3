@@ -3,6 +3,7 @@ extends Area2D
 export(float) var health = 100.0
 
 onready var lifebar = get_node("LifeBar")
+onready var delete_timer = get_node("DeadTimer")
 
 var ripped = false
 var active = true
@@ -38,7 +39,10 @@ func rip():
 	for body in bodies:
 		if body.is_in_group("lion"):
 			body.get_node("Blocked").set_active(false)
-	#queue_free()
+	delete_timer.start()
 
 func set_active(value):
 	active = value
+
+func delete():
+	queue_free()

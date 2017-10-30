@@ -68,4 +68,13 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 
+[node name="DeadTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 50.0
+one_shot = false
+autostart = false
+
+[connection signal="timeout" from="DeadTimer" to="." method="delete"]
+
 

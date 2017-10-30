@@ -6,6 +6,7 @@ export(PackedScene) var cupcake_scene
 export(float) var interval = 1.0
 
 onready var lifebar = get_node("LifeBar")
+onready var delete_timer = get_node("DeadTimer")
 
 var shoot_timer
 var lions_in_range = []
@@ -82,7 +83,10 @@ func rip():
 	ripped = true
 	shoot_timer.stop()
 	get_node("sprite").play("rip")
-	#queue_free()
+	delete_timer.start()
 
 func set_active(value):
 	active = value
+
+func delete():
+	queue_free()
