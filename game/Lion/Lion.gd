@@ -9,6 +9,7 @@ export(float) var roar_interval = 1.5
 onready var path_follow = get_parent()
 onready var lifebar = get_node("LifeBar")
 onready var roar_timer = get_node("RoarTimer")
+onready var delete_timer = get_node("DeadTimer")
 
 var flipped = false
 
@@ -36,6 +37,7 @@ func hit(value):
 	if hp <= 0:
 		hp = 0
 		emit_signal("lion_dead", reward)
+		delete_timer.start()
 		#queue_free()
 		remove_from_group("lion")
 		get_node("AnimatedSprite").play("rip")
@@ -63,3 +65,6 @@ func rawr():
 	for target in targets:
 		if target.is_in_group("unicorn"):
 			target.scare(damage)
+			
+func delete():
+	queue_free()

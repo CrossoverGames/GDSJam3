@@ -121,6 +121,13 @@ wait_time = 1.5
 one_shot = false
 autostart = false
 
+[node name="DeadTimer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 15.0
+one_shot = false
+autostart = false
+
 [connection signal="area_enter" from="attack_area" to="." method="on_body_enter"]
 
 [connection signal="area_exit" from="attack_area" to="." method="on_body_exit"]
@@ -132,5 +139,7 @@ autostart = false
 [connection signal="timeout" from="Freeze/Timer" to="Freeze" method="set_enabled" binds= [ false ]]
 
 [connection signal="timeout" from="RoarTimer" to="." method="rawr"]
+
+[connection signal="timeout" from="DeadTimer" to="." method="delete"]
 
 
